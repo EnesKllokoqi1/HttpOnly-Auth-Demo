@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CookieAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260329204748_Init")]
-    partial class Init
+    [Migration("20260329205704_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
