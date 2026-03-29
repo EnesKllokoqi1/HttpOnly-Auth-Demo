@@ -3,6 +3,7 @@ using System;
 using CookieAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CookieAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260327223342_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,12 +31,6 @@ namespace CookieAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-<<<<<<< HEAD
-                    b.Property<int>("Age")
-                        .HasColumnType("integer");
-
-=======
->>>>>>> c3bb1b067557d4c55614d42ed7475047fc98423c
                     b.Property<string>("EmailAddress")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -44,11 +41,7 @@ namespace CookieAPI.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-<<<<<<< HEAD
-                    b.Property<char?>("Gender")
-=======
                     b.Property<char>("Gender")
->>>>>>> c3bb1b067557d4c55614d42ed7475047fc98423c
                         .HasColumnType("character(1)");
 
                     b.Property<string>("LastName")
@@ -61,15 +54,6 @@ namespace CookieAPI.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
-<<<<<<< HEAD
-                    b.Property<string>("RefreshToken")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("RefreshTokenExpiryTime")
-                        .HasColumnType("timestamp with time zone");
-
-=======
->>>>>>> c3bb1b067557d4c55614d42ed7475047fc98423c
                     b.HasKey("Guid");
 
                     b.ToTable("User");
