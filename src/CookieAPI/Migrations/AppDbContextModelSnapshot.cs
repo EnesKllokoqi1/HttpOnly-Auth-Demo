@@ -38,7 +38,6 @@ namespace CookieAPI.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<char?>("Gender")
                     b.Property<char>("Gender")
                         .HasColumnType("character(1)");
 
