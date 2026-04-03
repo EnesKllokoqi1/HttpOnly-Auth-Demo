@@ -3,10 +3,7 @@ using DotNetEnv;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
 using Microsoft.IdentityModel.Tokens;
-=======
->>>>>>> eacc991 (implement database setup)
 using Scalar.AspNetCore;
 using System.Text;
 
