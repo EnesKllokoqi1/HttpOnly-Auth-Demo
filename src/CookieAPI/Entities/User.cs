@@ -11,6 +11,5 @@
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpiryTime { get; set; }
         public char? Gender { get; set; }
-
     }
 }
