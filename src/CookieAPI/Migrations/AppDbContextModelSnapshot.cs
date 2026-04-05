@@ -23,45 +23,47 @@ namespace CookieAPI.Migrations
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("CookieAPI.Entities.User", b =>
-                {
-                    b.Property<Guid>("Guid")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+            {
+                b.Property<Guid>("Guid")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("uuid");
 
-                    b.Property<string>("EmailAddress")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                b.Property<int>("Age")
+                    .HasColumnType("integer");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                b.Property<string>("EmailAddress")
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnType("character varying(100)");
 
-                    b.Property<char>("Gender")
+                b.Property<string>("FirstName")
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnType("character varying(100)");
 
-                        .HasColumnType("character(1)");
+                b.Property<char?>("Gender")
+                    .HasColumnType("character(1)");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                b.Property<string>("LastName")
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnType("character varying(100)");
 
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("character varying(500)");
+                b.Property<string>("PasswordHash")
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .HasColumnType("character varying(500)");
 
-                    b.Property<string>("RefreshToken")
-                        .HasColumnType("text");
+                b.Property<string>("RefreshToken")
+                    .HasColumnType("text");
 
-                    b.Property<DateTime?>("RefreshTokenExpiryTime")
-                        .HasColumnType("timestamp with time zone");
+                b.Property<DateTime?>("RefreshTokenExpiryTime")
+                    .HasColumnType("timestamp with time zone");
 
-                    b.HasKey("Guid");
+                b.HasKey("Guid");
 
-                    b.ToTable("User");
-                });
+                b.ToTable("User");
+            });
 #pragma warning restore 612, 618
         }
     }
