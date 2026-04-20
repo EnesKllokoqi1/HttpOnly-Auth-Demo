@@ -38,6 +38,7 @@ namespace CookieAPI.DTOs
         public string EmailAddress { get; set; } = string.Empty;
 
 
+        [Range(18, 120, ErrorMessage = "Age must be between 18 and 100")]
         [Required(ErrorMessage = "Age is required")]
         public int Age { get; set; }
     }
