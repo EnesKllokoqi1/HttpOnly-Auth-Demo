@@ -8,7 +8,7 @@ namespace CookieAPI.Interfaces
         Task<TokenResponseDTO> LogInAsync(UserLoginDTO userLoginDTO);
         Task<UserResponseDTO> UpdateUserAsync(Guid userId, UserUpdateDTO userUpdateDTO);
         Task<bool> DeleteUserAsync(Guid userId);
-        Task<TokenResponseDTO> RefreshTokenAsync(string refreshToken);
+        Task<TokenResponseDTO> RefreshTokens(string refreshToken);
         Task<bool> LogOutUser(Guid userId);
 
     }

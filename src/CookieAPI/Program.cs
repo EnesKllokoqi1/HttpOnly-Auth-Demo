@@ -1,4 +1,6 @@
 using CookieAPI.Data;
+using CookieAPI.Interfaces;
+using CookieAPI.Services;
 using DotNetEnv;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -15,6 +17,7 @@ var connection = Environment.GetEnvironmentVariable("DB_CONNECTION") ??
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(e=>e.UseNpgsql(connection));
+builder.Services.AddScoped<IAuthService,AuthService>();
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
