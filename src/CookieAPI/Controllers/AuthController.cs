@@ -19,7 +19,7 @@ namespace CookieAPI.Controllers
         [HttpPost("register-user")]
         public async Task<ActionResult<UserResponseDTO>> RegisterUser(UserRegisterDTO userRegisterDTO)
         {
-            var user = await _authService.RegisterUserAsync(userRegisterDTO);
+            var user = await _authService.RegisterUserAsync(userRegisterDTO);   
             if (user is null)
             {
                 return Conflict(new { 
@@ -137,7 +137,8 @@ namespace CookieAPI.Controllers
                 HttpOnly = true,
                 Secure = true,
                 Expires = DateTime.UtcNow.AddDays(7),
-                SameSite = SameSiteMode.Lax
+                SameSite = SameSiteMode.Lax,
+                Path = "/api/auth/refresh-tokens"
             };
             Response.Cookies.Append("access_token", tokenResponseDTO.AccessToken,accessToken);
             Response.Cookies.Append("refresh_token", tokenResponseDTO.RefreshToken, refreshToken);
@@ -145,7 +146,10 @@ namespace CookieAPI.Controllers
         private void ClearAuthCookies()
         {
             Response.Cookies.Delete("access_token");
-            Response.Cookies.Delete("refresh_token");
+            Response.Cookies.Delete("refresh_token", new CookieOptions
+            {
+                Path = "/api/auth/refresh-tokens"
+            });
         }
     }
 }
